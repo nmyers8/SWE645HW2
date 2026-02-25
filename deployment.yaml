@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-static-web-app
+spec:
+  selector:
+    matchLabels:
+      run: my-static-web-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: my-static-web-app
+    spec:
+      containers:
+      - name: my-static-web-app
+        image: nmyers8/static-web-app:latest
+        ports:
+        - containerPort: 80

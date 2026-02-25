@@ -1,0 +1,121 @@
+<!-- Nick Myers -->
+<!-- this is the survey file -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Survey</title>
+        <style>
+            .required::after { /*visually indicate which boxes are required*/
+                content: "*";
+                color: red;
+            }
+            .submit-button {
+                background-color: #006633;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Survey Form</h1>
+        </div>
+
+        <form action = "homepagepostsurvey.html">
+            <!-- Text boxes for the user to fill in information such as their username, address, and other information -->
+            <p><label class = "required">First Name:
+                <input type = "text" id = "firstname" required autofocus />
+            </label></p>
+
+            <p><label class = "required">Last Name:
+                <input type = "text" id = "lastname" required />
+            </label></p>
+
+            <p><label class = "required">Street Address:
+                <input type = "text" id = "address" required />
+            </label></p>
+
+            <p><label class = "required">City:
+                <input type = "text" id = "city" required />
+            </label></p>
+
+            <p><label class = "required">State:
+                <input type = "text" id = "state" required />
+            </label></p>
+
+            <p><label class = "required">ZIP Code:
+                <input type = "text" id = "zip" required />
+            </label></p>
+
+            <p><label class = "required">Phone Number:
+                <input type = "tel" id = "phone" placeholder = "(###) ###-####" pattern = "\(\d{3}\) +\d{3}-\d{4}" required />
+            </label></p>
+
+            <p><label class = "required">Email:
+                <input type = "email" id = "email" placeholder = "name@domain.com" required />
+            </label></p>
+
+            <p><label class = "required">Date of Survey Taken:
+                <input type = "date" id = "date" placeholder = "yyyy-mm-dd" required />
+            </label></p>
+
+            <!-- Allow the user to indicate what they liked about the campus using checkboxes -->
+            <p>
+                <strong>What did you like most about the campus?</strong><br />
+                <label>Students
+                    <input name = "thingsliked" type = "checkbox" value = "students" /></label>
+                <label>Location
+                    <input name = "thingsliked" type = "checkbox" value = "location" /></label>
+                <label>Campus
+                    <input name = "thingsliked" type = "checkbox" value = "campus" /></label>
+                <label>Atmosphere
+                    <input name = "thingsliked" type = "checkbox" value = "atmosphere" /></label>
+                <label>Dorm Rooms
+                    <input name = "thingsliked" type = "checkbox" value = "dormrooms" /></label>
+                <label>Sports
+                    <input name = "thingsliked" type = "checkbox" value = "sports" /></label>
+            </p>
+
+            <!-- Allow the user to indicate how they became interested using radio buttons -->
+            <p>
+                <strong>How did you become interested in the university?</strong><br />
+                <label>Friends
+                    <input name = "interests" type = "radio" value = "friends" checked = "checked" /></label>
+                <label>Television
+                    <input name = "interests" type = "radio" value = "tv" /></label>
+                <label>Internet
+                    <input name = "interests" type = "radio" value = "internet" /></label>
+                <label>Other
+                    <input name = "interests" type = "radio" value = "other" /></label>
+            </p>
+
+            <!-- Drop down list of options for the user to indicate how likely they are to recommend the university -->
+            <p>
+                <label>How likely are you to recommend us?
+                    <select name = "recommend">
+                        <option selected = "selected">Very Likely</option>
+                        <option>Likely</option>
+                        <option>Unlikely</option>
+                    </select>
+                </label>
+            </p>
+
+            <!-- Text box for the user to input raffle numbers. -->
+            <p><label>Raffle (enter 10 numbers between 1 and 100 for a chance to win a free movie ticket)
+                <input type = "text" id = "raffle" placeholder = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10" />
+            </label></p>
+
+            <!-- Text area for the user to provide any additional comments -->
+            <p><label>Additional Comments:<br />
+                <textarea id = "comments" name = "comments"
+                    rows = "4" cols = "36"></textarea>
+            </label></p>
+
+            <p>
+                <input type = "submit" value = "Submit" class = "submit-button" />
+                <button type = "button" onclick = "window.location.href='index.html'" class = "submit-button">Cancel</button> <!--Send the user back to the original index page-->
+            </p>
+        </form>
+    </body>
+</html>
