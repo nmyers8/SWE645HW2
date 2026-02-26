@@ -16,8 +16,8 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1', 'dockerhub-creds') {
-                        dockerImage.push()
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+                        docker.image('nmyers8/static-web-app:latest').push()
                     }
                 }
             }
