@@ -25,11 +25,13 @@ pipeline {
         stage('Update Kubernetes Deployment') {
             steps {
                 script {
-                    sh """
-                    sed -i 's|nmyers8/static-web-app:latest|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
-                    kubectl apply -f k8s/deployment.yaml
-                    kubectl apply -f k8s/service.yaml
-                    """
+                    withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {
+                        sh """
+                        sed -i 's|nmyers8/static-web-app:latest|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
+                        kubectl apply -f k8s/deployment.yaml
+                        kubectl apply -f k8s/service.yaml
+                        """
+                    }
                 }
             }
         }
