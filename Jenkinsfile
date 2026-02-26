@@ -6,11 +6,6 @@ pipeline {
         IMAGE_TAG = 'latest'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/nmyers8/SWE645HW2.git'
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
